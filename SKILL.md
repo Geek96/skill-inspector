@@ -1,5 +1,6 @@
 ---
 name: skill-inspector
+version: "1.1.0"
 description: Use when the user wants to evaluate, audit, compare, or decide whether to install an AI skill, MCP server, plugin, agent tool, or GitHub repo that extends agent capabilities.
 ---
 
