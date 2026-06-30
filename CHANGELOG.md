@@ -3,7 +3,7 @@
 All notable user-facing changes to **skill-inspector** are documented here.
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-Version scheme: `MAJOR.MINOR.PATCH`
+Version scheme: `MAJOR.MINOR.PATCH` — see [CLAUDE.md](./CLAUDE.md) for rules.
 
 ---
 
@@ -23,4 +23,3 @@ Version scheme: `MAJOR.MINOR.PATCH`
 - Obsidian output now defaults to Chinese body text when the user does not specify a language.
 - Obsidian guidance now permits titles, section headings, YAML keys, Dataview fields, command names, package names, tool names, and code blocks to remain English while body text follows the selected language.
 - Replaced the legacy bulky `Skill Reviews/00_Index.md` category-tree default with a simpler library layout.
-

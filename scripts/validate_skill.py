@@ -5,6 +5,11 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
+    ".claude-plugin/plugin.json",
+    "README.md",
+    "README.zh-CN.md",
+    "CHANGELOG.md",
+    "CLAUDE.md",
     "SKILL.md",
     "references/review-workflow.md",
     "references/source-research.md",
@@ -153,6 +158,38 @@ REQUIRED_FINAL_SKILL_PHRASES = [
     "main-account cookies",
 ]
 
+REQUIRED_README_PHRASES = [
+    "skill-inspector",
+    "AI agent skill",
+    "risk-first",
+    "single target",
+    "need-based discovery",
+    "Obsidian",
+    "Dataview",
+    "Runtime verification",
+    "Credential handling",
+    "version",
+]
+
+REQUIRED_CLAUDE_PHRASES = [
+    "Versioning",
+    "EVERY COMMIT MUST FOLLOW",
+    "PATCH",
+    "MINOR",
+    "MAJOR",
+    ".claude-plugin/plugin.json",
+    "CHANGELOG.md",
+    "GitHub Release",
+    "commit message",
+]
+
+REQUIRED_PLUGIN_PHRASES = [
+    '"name": "skill-inspector"',
+    '"version":',
+    '"skills"',
+    '"./"',
+]
+
 FORBIDDEN_FILLER = [
     "T" + "BD",
     "implement " + "later",
@@ -233,6 +270,21 @@ def main() -> int:
     for phrase in REQUIRED_TEMPLATE_PHRASES:
         assert_contains(chat_template, phrase, "templates/chat-report.md")
         assert_contains(expected_outline, phrase, "examples/expected-chat-report-outline.md")
+
+    readme = read("README.md")
+    readme_zh = read("README.zh-CN.md")
+    for phrase in REQUIRED_README_PHRASES:
+        assert_contains(readme, phrase, "README.md")
+    for phrase in ["skill-inspector", "AI agent skill", "风险优先", "Obsidian", "Dataview", "版本"]:
+        assert_contains(readme_zh, phrase, "README.zh-CN.md")
+
+    claude = read("CLAUDE.md")
+    for phrase in REQUIRED_CLAUDE_PHRASES:
+        assert_contains(claude, phrase, "CLAUDE.md")
+
+    plugin = read(".claude-plugin/plugin.json")
+    for phrase in REQUIRED_PLUGIN_PHRASES:
+        assert_contains(plugin, phrase, ".claude-plugin/plugin.json")
 
     print("skill-inspector validation passed")
     return 0

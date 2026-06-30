@@ -1,0 +1,14 @@
+{
+  "name": "skill-inspector",
+  "version": "1.1.1",
+  "description": "Risk-first AI agent skill for auditing, comparing, and deciding whether to install skills, MCP servers, plugins, and agent tools",
+  "author": {
+    "name": "Geek96",
+    "url": "https://github.com/Geek96"
+  },
+  "license": "MIT",
+  "keywords": ["ai-agent", "skill", "mcp", "plugin", "security", "audit", "obsidian", "dataview"],
+  "skills": [
+    "./"
+  ]
+}
